@@ -25,7 +25,8 @@ typedef struct {
 
 void*   arenaCreate(u64 capacity);
 void    arenaDestroy(memory_arena* arena);
+void    arenaClear(memory_arena* arena);
+
 void*   arenaPush(memory_arena* arena, u64 size);
 void    arenaPop(memory_arena* arena, u64 size);
 void    arenaRewindToPos(memory_arena* arena, u64 pos);
-void    arenaClear(memory_arena* arena);

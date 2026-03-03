@@ -15,6 +15,10 @@ void arenaDestroy(memory_arena* arena) {
     free(arena);
 }
 
+void arenaClear(memory_arena* arena) {
+    arena->pos = ARENA_BASE_POSITION;
+}
+
 void* arenaPush(memory_arena* arena, u64 size) {
     if (!arena || size == 0) {
         return NULL;
@@ -56,8 +60,4 @@ void arenaRewindToPos(memory_arena* arena, u64 pos) {
         popToPos = arena->pos - pos; 
     }
     arenaPop(arena, popToPos);
-}
-
-void arenaClear(memory_arena* arena) {
-    arena->pos = ARENA_BASE_POSITION;
 }
